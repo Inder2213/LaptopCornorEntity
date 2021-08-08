@@ -1,0 +1,49 @@
+﻿@page
+@model LaptopCornor.Pages.AsusLap.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="btn btn-warning"><a asp-page="Create">Add New Product </a></h1>
+
+        </div>
+        @foreach (var item in Model.Asus)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.specification)</p>
+                        <a asp-page="/Clients/Create" class="btn btn-primary">Buy Now</a>
+                        <a asp-page="./Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" class="btn btn-danger" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" class="btn btn-success" asp-route-id="@item.Id">Delete</a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
